@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI System - Scale Your Business With AI</title>
+    <meta name="description" content="Grow to Over $3,000,000 a Month Using AI + Real Models on OnlyFans & Fanvue">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'dark-pink': '#1a0b14',
+                    'purple-pink': '#2d1b2d',
+                    'accent-pink': '#e91e63',
+                    'light-pink': '#f06292',
+                    'deep-wine': '#19070c'   // ← added this
+                },
+                fontFamily: {
+                    'sans': ['Inter', 'system-ui', 'sans-serif']
+                }
+            }
+        }
+    }
+</script>
+
+    <!--<script>-->
+    <!--    tailwind.config = {-->
+    <!--        theme: {-->
+    <!--            extend: {-->
+    <!--                colors: {-->
+    <!--                    'dark-pink': '#1a0b14',-->
+    <!--                    'purple-pink': '#2d1b2d',-->
+    <!--                    'accent-pink': '#e91e63',-->
+    <!--                    'light-pink': '#f06292'-->
+    <!--                },-->
+    <!--                fontFamily: {-->
+    <!--                    'sans': ['Inter', 'system-ui', 'sans-serif']-->
+    <!--                }-->
+    <!--            }-->
+    <!--        }-->
+    <!--    }-->
+    <!--</script>-->
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .curved-bg {
+            background: linear-gradient(135deg, #000000 0%, #1a0b14 50%, #2d1b2d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .curved-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M0,1000V0C300,100 600,200 1000,0V1000Z" fill="rgba(233,30,99,0.1)"/></svg>') no-repeat center;
+            background-size: cover;
+        }
+        
+        .model-shadow {
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+        }
+        
+        .glow {
+            box-shadow: 0 0 30px rgba(233,30,99,0.5);
+        }
+        
+        .slide-enter {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        
+        .slide-enter-active {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.5s ease-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #e91e63, #f06292);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Fix responsive layout issues */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px;
+            }
+        }
+        
+        /* Ensure proper initial layout */
+        section {
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
+        }
+        
+        .grid {
+            width: 100%;
+        }
+        
+        /* Fix header responsiveness */
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: nowrap;
+        }
+        
+        /* Ensure images don't overflow */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    
+    
+</head>
+<body class="font-sans bg-gray-900 text-white">
+    <!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-[#1a0b14]/90 backdrop-blur-md border-b border-gray-800">
+  <div class="container mx-auto py-3 flex justify-between items-center">
+    <div class="flex items-center space-x-2 min-w-0">
+      <img src="./assets/Logo2.png" alt="FanPro Logo" class="h-8 w-auto flex-shrink-0">
+      <span class="text-xl font-bold truncate">.</span>
+    </div>
+    <nav class="hidden md:flex space-x-8 flex-shrink-0">
+      <a href="#home" class="hover:text-accent-pink transition-colors">Home</a>
+      <a href="#features" class="hover:text-accent-pink transition-colors">Features</a>
+      <a href="#results" class="hover:text-accent-pink transition-colors">Results</a>
+      <a href="#faq" class="hover:text-accent-pink transition-colors">FAQ</a>
+    </nav>
+    <a href="https://app.iclosed.io/e/softsystem/ai-systems-strategy" target="_blank" rel="noopener noreferrer">
+  <button class="bg-accent-pink hover:bg-light-pink px-4 md:px-6 py-2 rounded-lg font-semibold transition-colors text-sm md:text-base flex-shrink-0">
+    Schedule a Call
+  </button>
+</a>
+
+  </div>
+</header>
+
+
+
+    <!-- Hero Section -->
+<section id="home" class="bg-gradient-to-b from-purple-pink via-dark-pink to-deep-wine min-h-screen relative flex items-center justify-center">
+    <!-- Background Models -->
+    <div class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 hidden lg:block">
+        <img src="./assets/AI_Influencer_7_header.png" alt="Model Left" class="h-96 md:h-[600px] model-shadow float-animation">
+    </div>
+    <div class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 hidden lg:block">
+        <img src="./assets/AI_Influencer_8_header.png" alt="Model Right" class="h-96 md:h-[600px] model-shadow float-animation" style="animation-delay: -3s;">
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="container mx-auto text-center relative z-20 pt-20">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-6">
+                <span class="bg-accent-pink/20 text-accent-pink px-4 py-2 rounded-full text-sm font-semibold">
+                    Official Content Partner for Scalable Brands
+                </span>
+            </div>
+            
+            <p class="text-gray-300 mb-4 text-lg">
+                AI Influencers Are Scaling Brands. This is a new and untapped Content Model
+            </p>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+                We Have Helped Brands <span class="gradient-text">Scale to $250K/Month Using AI Influencers on TikTok & IG</span>
+            </h1>
+            
+            <p class="text-gray-300 mb-12 text-xl max-w-3xl mx-auto">
+                People buy from people they connect with.
+That’s why we build personalities your audience wants to follow & buy from.
+            </p>
+            
+            <!-- Video Placeholder -->
+<div class="relative max-w-2xl mx-auto mb-12">
+  <div class="bg-gray-800 rounded-lg p-8 glow">
+    
+    <!-- Embedded YouTube video -->
+    <div class="aspect-video rounded-lg overflow-hidden mb-4">
+      <iframe 
+        class="w-full h-full"
+        src="https://www.youtube.com/embed/NgCr6x_Imc4?si=cSwY_5VdgkbBEdrR" 
+        title="YouTube video player"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <a href="https://app.iclosed.io/e/softsystem/ai-systems-strategy" target="_blank" rel="noopener noreferrer">
+  <button class="bg-accent-pink hover:bg-light-pink px-8 py-4 rounded-lg font-bold text-lg transition-colors w-full">
+    SCHEDULE A CALL
+  </button>
+</a>
+
+    <p class="text-gray-400 mt-2 text-sm">Book One & See</p>
+  </div>
+</div>
+
+            
+            <div class="text-center">
+                <p class="text-accent-pink text-xl font-semibold mb-2">Your Offer Could Be Next</p>
+                <p class="text-gray-300 text-lg italic">This Is What Showing Up Without Showing Up Looks Like</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AI Reels Coverflow Section -->
+<section class="bg-deep-wine py-20">
+  <div class="container mx-auto">
+    <div class="max-w-[1200px] mx-auto relative">
+
+      <!-- Prev / Next arrows -->
+      <button class="reels-prev absolute left-0 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/80 backdrop-blur px-3 py-3 shadow">
+        ‹
+      </button>
+      <button class="reels-next absolute right-0 top-1/2 -translate-y-1/2 z-20 rounded-full bg-white/80 backdrop-blur px-3 py-3 shadow">
+        ›
+      </button>
+
+      <!-- Swiper -->
+      <div class="reelsSwiper swiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slides -->
+          <div class="swiper-slide reel-slide">
+            <div class="video-wrapper relative w-full h-full">
+              <video class="w-full h-full object-cover" src="./assets/AI_Influencer25.MOV" playsinline muted loop preload="metadata"></video>
+              <button class="mute-toggle absolute bottom-3 right-3 p-2" aria-label="Unmute video" data-state="muted">
+                <!-- speaker off (white, flat) -->
+                <svg class="icon icon-mute w-6 h-6" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5zM16.5 12l2.5 2.5 1.5-1.5L18 10.5 16.5 12zM14.5 10l-1.5 1.5L16.5 15 18 13.5 14.5 10z"/>
+                </svg>
+                <!-- speaker on (hidden by default; CSS below switches) -->
+                <svg class="icon icon-unmute w-6 h-6 hidden" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5z"/>
+                  <path d="M16.5 5.5a9 9 0 010 13l-1.4-1.4a7 7 0 000-10.2L16.5 5.5zM14.5 7.5a6 6 0 010 9l-1.4-1.4a4 4 0 000-6.2L14.5 7.5z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="swiper-slide reel-slide">
+            <div class="video-wrapper relative w-full h-full">
+              <video class="w-full h-full object-cover" src="./assets/AI_influencer27.MOV" playsinline muted loop preload="metadata"></video>
+              <button class="mute-toggle absolute bottom-3 right-3 p-2" aria-label="Unmute video" data-state="muted">
+                <svg class="icon icon-mute w-6 h-6" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5zM16.5 12l2.5 2.5 1.5-1.5L18 10.5 16.5 12zM14.5 10l-1.5 1.5L16.5 15 18 13.5 14.5 10z"/>
+                </svg>
+                <svg class="icon icon-unmute w-6 h-6 hidden" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5z"/>
+                  <path d="M16.5 5.5a9 9 0 010 13l-1.4-1.4a7 7 0 000-10.2L16.5 5.5zM14.5 7.5a6 6 0 010 9l-1.4-1.4a4 4 0 000-6.2L14.5 7.5z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="swiper-slide reel-slide">
+            <div class="video-wrapper relative w-full h-full">
+              <video class="w-full h-full object-cover" src="./assets/AI_influencer28.MOV" playsinline muted loop preload="metadata"></video>
+              <button class="mute-toggle absolute bottom-3 right-3 p-2" aria-label="Unmute video" data-state="muted">
+                <svg class="icon icon-mute w-6 h-6" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5zM16.5 12l2.5 2.5 1.5-1.5L18 10.5 16.5 12zM14.5 10l-1.5 1.5L16.5 15 18 13.5 14.5 10z"/>
+                </svg>
+                <svg class="icon icon-unmute w-6 h-6 hidden" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5z"/>
+                  <path d="M16.5 5.5a9 9 0 010 13l-1.4-1.4a7 7 0 000-10.2L16.5 5.5zM14.5 7.5a6 6 0 010 9l-1.4-1.4a4 4 0 000-6.2L14.5 7.5z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="swiper-slide reel-slide">
+            <div class="video-wrapper relative w-full h-full">
+              <video class="w-full h-full object-cover" src="./assets/AI_influencer30.MOV" playsinline muted loop preload="metadata"></video>
+              <button class="mute-toggle absolute bottom-3 right-3 p-2" aria-label="Unmute video" data-state="muted">
+                <svg class="icon icon-mute w-6 h-6" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5zM16.5 12l2.5 2.5 1.5-1.5L18 10.5 16.5 12zM14.5 10l-1.5 1.5L16.5 15 18 13.5 14.5 10z"/>
+                </svg>
+                <svg class="icon icon-unmute w-6 h-6 hidden" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5z"/>
+                  <path d="M16.5 5.5a9 9 0 010 13l-1.4-1.4a7 7 0 000-10.2L16.5 5.5zM14.5 7.5a6 6 0 010 9l-1.4-1.4a4 4 0 000-6.2L14.5 7.5z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="swiper-slide reel-slide">
+            <div class="video-wrapper relative w-full h-full">
+              <video class="w-full h-full object-cover" src="./assets/AI_influencer31.MOV" playsinline muted loop preload="metadata"></video>
+              <button class="mute-toggle absolute bottom-3 right-3 p-2" aria-label="Unmute video" data-state="muted">
+                <svg class="icon icon-mute w-6 h-6" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5zM16.5 12l2.5 2.5 1.5-1.5L18 10.5 16.5 12zM14.5 10l-1.5 1.5L16.5 15 18 13.5 14.5 10z"/>
+                </svg>
+                <svg class="icon icon-unmute w-6 h-6 hidden" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true">
+                  <path d="M5 10v4h3l4 3V7l-4 3H5z"/>
+                  <path d="M16.5 5.5a9 9 0 010 13l-1.4-1.4a7 7 0 000-10.2L16.5 5.5zM14.5 7.5a6 6 0 010 9l-1.4-1.4a4 4 0 000-6.2L14.5 7.5z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper CSS/JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .reel-slide{
+    width: clamp(160px, 18vw, 260px);
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0f0f0f;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  }
+  .reelsSwiper .swiper-wrapper{ align-items:center; }
+  .video-wrapper{ position:relative; width:100%; height:100%; }
+  .mute-toggle{ line-height:0; background:transparent; cursor:pointer; }
+  .mute-toggle .icon{ pointer-events:none; }
+  /* swap icons via data-state */
+  .mute-toggle[data-state="muted"]   .icon-mute{ display:block; }
+  .mute-toggle[data-state="muted"]   .icon-unmute{ display:none; }
+  .mute-toggle[data-state="unmuted"] .icon-mute{ display:none; }
+  .mute-toggle[data-state="unmuted"] .icon-unmute{ display:block; }
+</style>
+
+<script>
+  const reelsSwiper = new Swiper('.reelsSwiper', {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+    loopAdditionalSlides: 6,
+    spaceBetween: 16,
+    effect: 'coverflow',
+    coverflowEffect: {
+      rotate: 0, stretch: 0, depth: 120, scale: 0.9, modifier: 1, slideShadows: false
+    },
+    navigation: { nextEl: '.reels-next', prevEl: '.reels-prev' },
+    breakpoints: { 320:{spaceBetween:12}, 640:{spaceBetween:14}, 1024:{spaceBetween:16} },
+    on: {
+      init: (sw) => {
+        const active = sw.slides[sw.activeIndex]?.querySelector('video');
+        if (active) active.play().catch(()=>{});
+      },
+      slideChangeTransitionStart: (sw) => {
+        // pause & mute non-active; keep active's current mute state
+        sw.slides.forEach((s, i) => {
+          const v = s.querySelector('video'); if (!v) return;
+          const btn = s.querySelector('.mute-toggle');
+          if (i === sw.activeIndex) {
+            v.play().catch(()=>{});
+          } else {
+            v.pause();
+            if (!v.muted) { v.muted = true; v.setAttribute('muted',''); }
+            if (btn) btn.setAttribute('data-state','muted');
+          }
+        });
+      }
+    }
+  });
+
+  // Helper to sync all other buttons to muted when needed
+  function syncButtonsForAllOthers(exceptVideo){
+    document.querySelectorAll('.reelsSwiper .video-wrapper').forEach(w=>{
+      const v = w.querySelector('video');
+      const b = w.querySelector('.mute-toggle');
+      if (v && v !== exceptVideo) {
+        v.muted = true; v.setAttribute('muted','');
+        if (b) b.setAttribute('data-state','muted');
+      }
+    });
+  }
+
+  // Delegate clicks so cloned slides work
+  const sliderEl = document.querySelector('.reelsSwiper');
+  sliderEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.mute-toggle');
+    if (!btn) return;
+
+    const video = btn.closest('.video-wrapper')?.querySelector('video');
+    if (!video) return;
+
+    if (video.muted) {
+      // unmute this one, mute the rest
+      syncButtonsForAllOthers(video);
+      video.muted = false;
+      video.removeAttribute('muted');   // Safari/iOS quirk
+      video.volume = 1;
+      // replay in the same user gesture so audio is allowed
+      try { video.currentTime = Math.max(0, video.currentTime); } catch {}
+      video.play().catch(()=>{});
+      btn.setAttribute('data-state','unmuted');
+      btn.setAttribute('aria-label','Mute video');
+    } else {
+      video.muted = true;
+      video.setAttribute('muted','');
+      btn.setAttribute('data-state','muted');
+      btn.setAttribute('aria-label','Unmute video');
+    }
+  });
+
+  // If tab becomes hidden, pause audio for safety
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      document.querySelectorAll('.reelsSwiper video').forEach(v => { v.pause(); v.muted = true; v.setAttribute('muted',''); });
+      document.querySelectorAll('.reelsSwiper .mute-toggle').forEach(b => b.setAttribute('data-state','muted'));
+    } else {
+      const active = reelsSwiper.slides[reelsSwiper.activeIndex]?.querySelector('video');
+      if (active) active.play().catch(()=>{});
+    }
+  });
+</script>
+
+
+<!-- Swiper CSS/JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .reel-slide{
+    width: clamp(160px, 18vw, 260px);
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0f0f0f;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  }
+  .reelsSwiper .swiper-wrapper{ align-items:center; }
+  .video-wrapper{ position:relative; width:100%; height:100%; }
+  .mute-toggle{ line-height:0; background:transparent; }
+  .mute-toggle .icon{ pointer-events:none; } /* ensure clicks reach the button */
+  .mute-toggle .icon-mute{ display:block; }
+  .mute-toggle[data-state="unmuted"] .icon-mute{ display:none; }
+  .mute-toggle[data-state="unmuted"] .icon-unmute{ display:block; }
+</style>
+
+<script>
+  const reelsSwiper = new Swiper('.reelsSwiper', {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 16,
+    effect: 'coverflow',
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 120,
+      scale: 0.9,
+      modifier: 1,
+      slideShadows: false
+    },
+    navigation: {
+      nextEl: '.reels-next',
+      prevEl: '.reels-prev'
+    },
+    breakpoints: {
+      320:  { spaceBetween: 12 },
+      640:  { spaceBetween: 14 },
+      1024: { spaceBetween: 16 }
+    },
+    on: {
+      init: (sw) => {
+        // Start playing the initially active slide (muted)
+        const v = sw.slides[sw.activeIndex]?.querySelector('video');
+        if (v) v.play().catch(()=>{});
+      },
+      slideChange: (sw) => {
+        // Pause & mute all; play the active one (muted unless user unmutes)
+        sw.slides.forEach((s, i) => {
+          const v = s.querySelector('video');
+          if (!v) return;
+          if (i === sw.activeIndex) {
+            // keep current mute state if user unmuted; otherwise ensure muted
+            if (v.muted !== false) v.muted = true;
+            v.play().catch(()=>{});
+          } else {
+            v.pause();
+            v.muted = true;
+            const btn = s.querySelector('.mute-toggle');
+            if (btn) btn.setAttribute('data-state','muted');
+          }
+        });
+      }
+    }
+  });
+
+  // Event delegation so buttons in *cloned* slides work too
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.mute-toggle');
+    if (!btn) return;
+
+    const wrapper = btn.closest('.video-wrapper');
+    const video = wrapper?.querySelector('video');
+    if (!video) return;
+
+    // If turning sound on, mute every other video first
+    if (video.muted) {
+      document.querySelectorAll('.reelsSwiper video').forEach(v => {
+        if (v !== video) v.muted = true;
+      });
+    }
+
+    video.muted = !video.muted;
+    if (!video.muted) {
+      video.volume = 1;
+      video.play().catch(()=>{}); // user gesture -> should allow audio
+      btn.setAttribute('data-state','unmuted');
+      btn.setAttribute('aria-label','Mute video');
+    } else {
+      btn.setAttribute('data-state','muted');
+      btn.setAttribute('aria-label','Unmute video');
+    }
+  });
+</script>
+
+
+
+
+
+   <!-- Managing Real vs Automated AI -->
+<section class="relative py-20 overflow-hidden bg-gradient-to-b from-[#1a0b14] to-[#b33158]">
+  <div class="relative container mx-auto">
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <!-- Managing Real -->
+      <div class="rounded-lg p-6 md:p-8 bg-red-900/30 border border-red-500/30">
+        <h3 class="text-2xl font-bold text-white mb-6">Doing It All Yourself</h3>
+        <img src="./assets/AI_Influencer__17.png" alt="Managing Real" class="w-full mb-6">
+        <ul class="space-y-3 text-white/90">
+          <li>• Burnout from always being “on”</li>
+          <li>• Constant filming, editing, posting</li>
+          <li>• Pressure to follow every trend</li>
+          <li>• No time to focus on real business growth</li>
+          <li>• Content depends on your energy</li>
+          <li>• No real system or support</li>
+          
+        </ul>
+      </div>
+
+      <!-- Automated AI -->
+      <div class="rounded-lg p-6 md:p-8 bg-white/5 border border-white/10 backdrop-blur-[1px]">
+        <h3 class="text-2xl font-bold text-[#e08ea7] mb-6">Employing AI Influencer</h3>
+        <img src="./assets/AI_Influencer__18.png" alt="Automated AI" class="w-full mb-6">
+        <ul class="space-y-3 text-white/90">
+          <li>✓ Show up daily without showing up</li>
+          <li>✓ We create and manage everything for you</li>
+          <li>✓ Your brand stays active while you unplug</li>
+          <li>✓ Designed for long-term, stress-free scale</li>
+          <li>✓ 10x your output without increasing effort. Consistency, visibility, and clarity automated.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 Simple Steps -->
+<section class="relative py-20">
+  <!-- background gradient to merge from wine to pink -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#1a0b14] to-[#b33158]"></div>
+
+  <div class="relative container mx-auto text-center">
+    <div class="bg-black/20 rounded-lg p-6 md:p-12 max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
+        Launch Your AI Influencer in 3 Simple Steps
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="bg-[#b33158] w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold text-white">1</div>
+          <h3 class="font-bold mb-2 text-white">Book Your Strategy Call</h3>
+          <p class="text-white/80 text-sm">Get matched with your AI Content Lead and plan out your digital rep — personality, tone, goals, and what you're actually selling.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-[#b33158] w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold text-white">2</div>
+          <h3 class="font-bold mb-2 text-white">We Build & Launch Your AI Influencer</h3>
+          <p class="text-white/80 text-sm">We create the persona, write the scripts, and start posting content that promotes your offers, services, and whatever you’re trying to sell — without you lifting a finger.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-[#b33158] w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold text-white">3</div>
+          <h3 class="font-bold mb-2 text-white">Show Up Daily, Sell More, Post More</h3>
+          <p class="text-white/80 text-sm">Your AI promotes your brand 24/7. You stay off camera. The visibility, leads, and sales? Still 100% yours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- FAQ Section -->
+<section id="faq" class="curved-bg py-20">
+  <div class="container mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">FAQ's</h2>
+    
+    <div class="max-w-3xl mx-auto space-y-4">
+
+      <div class="faq-item border border-gray-700 rounded-lg overflow-hidden">
+        <button class="faq-question w-full text-left p-6 bg-gray-800 hover:bg-gray-700 transition-colors flex justify-between items-center">
+          <span class="font-semibold">Is this just some AI clone of me?</span>
+          <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer hidden p-6 bg-gray-900 border-t border-gray-700">
+          <p class="text-gray-300">Not unless you want it to be. You can create a digital version of yourself, sure — but most people just want an AI brand rep that matches their vibe, voice, and audience. This isn’t about building a robot version of you. It’s about having someone (who never burns out) promote your brand daily, without you having to be there.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-gray-700 rounded-lg overflow-hidden">
+        <button class="faq-question w-full text-left p-6 bg-gray-800 hover:bg-gray-700 transition-colors flex justify-between items-center">
+          <span class="font-semibold">Do I have to be on camera?</span>
+          <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer hidden p-6 bg-gray-900 border-t border-gray-700">
+          <p class="text-gray-300">Nope. That’s the whole point. You don’t have to film, record, or “show up” if you don’t want to. We build and run your AI influencer so you can stay behind the scenes while still putting out content that talks to your audience and promotes what you’re selling.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-gray-700 rounded-lg overflow-hidden">
+        <button class="faq-question w-full text-left p-6 bg-gray-800 hover:bg-gray-700 transition-colors flex justify-between items-center">
+          <span class="font-semibold">Who is this actually for?</span>
+          <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer hidden p-6 bg-gray-900 border-t border-gray-700">
+          <p class="text-gray-300">If you’re a founder, creator, coach, or brand doing everything yourself — this is for you. Especially if you’re tired of guessing what to post, skipping days, and stressing over how to show up online. If you have offers, services, or products that deserve attention but you don’t have the time or energy to promote them properly, this fixes that.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-gray-700 rounded-lg overflow-hidden">
+        <button class="faq-question w-full text-left p-6 bg-gray-800 hover:bg-gray-700 transition-colors flex justify-between items-center">
+          <span class="font-semibold">How fast can I launch this?</span>
+          <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer hidden p-6 bg-gray-900 border-t border-gray-700">
+          <p class="text-gray-300">Most people launch in 7 to 14 days. We handle the setup — persona, scripting, content, scheduling, and strategy — so your AI influencer starts showing up fast and talking directly to your audience about your business.</p>
+        </div>
+      </div>
+
+      <div class="faq-item border border-gray-700 rounded-lg overflow-hidden">
+        <button class="faq-question w-full text-left p-6 bg-gray-800 hover:bg-gray-700 transition-colors flex justify-between items-center">
+          <span class="font-semibold">What do I actually get each month?</span>
+          <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer hidden p-6 bg-gray-900 border-t border-gray-700">
+          <p class="text-gray-300">You get a done-for-you content system that promotes your brand, offers, and services every week without you needing to do anything. We handle strategy, scripting, creation, publishing, and optimization — all in your tone, on your platforms, consistently.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-800 py-8 md:py-16">
+        <div class="container mx-auto">
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-10 max-w-6xl mx-auto shadow-xl border border-gray-200/50">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+                    <!-- Company Info -->
+                    <div class="md:col-span-1">
+                        <div class="flex items-center space-x-2 mb-6">
+                            <div class="w-10 h-10 bg-gradient-to-br from-accent-pink to-light-pink rounded-xl flex items-center justify-center shadow-lg">
+                                <span class="text-white font-bold text-lg">F</span>
+                            </div>
+                            <div>
+                                <span class="text-xl md:text-2xl font-bold bg-gradient-to-r from-accent-pink to-light-pink bg-clip-text text-transparent">The AI System</span>
+                                <span class="block text-xs text-gray-500 font-medium">MGMT</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-sm font-semibold text-gray-700 mb-1">The Soft System</p>
+                                <p class="text-xs text-gray-500">All Rights Reserved</p>
+                            </div>
+                            
+                            <p class="text-xs leading-relaxed text-gray-600">
+                                Any results or numbers mentioned are relative and are not guaranteed. What you get out depends on what you put in
+                            </p>
+                            
+                            <div class="inline-flex items-center space-x-2 bg-accent-pink/10 px-3 py-2 rounded-lg">
+                                <div class="w-2 h-2 bg-accent-pink rounded-full animate-pulse"></div>
+                                <span class="text-xs font-medium text-accent-pink">Official Partner For Visionary Brands</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="md:col-span-1">
+                        <h4 class="font-bold text-gray-800 mb-4 text-sm md:text-base">Quick Links</h4>
+                        <nav class="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-3">
+                            <a href="#" class="text-sm text-gray-600 hover:text-accent-pink transition-colors duration-200 hover:translate-x-1 transform">About Us</a>
+                            <a href="#" class="text-sm text-gray-600 hover:text-accent-pink transition-colors duration-200 hover:translate-x-1 transform">Apply Now</a>
+                            <a href="#" class="text-sm text-gray-600 hover:text-accent-pink transition-colors duration-200 hover:translate-x-1 transform">Refer Talent</a>
+                            <a href="#" class="text-sm text-gray-600 hover:text-accent-pink transition-colors duration-200 hover:translate-x-1 transform">Terms of Service</a>
+                            <a href="#" class="text-sm text-gray-600 hover:text-accent-pink transition-colors duration-200 hover:translate-x-1 transform">Privacy Policy</a>
+                        </nav>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="md:col-span-1">
+                        <h4 class="font-bold text-gray-800 mb-4 text-sm md:text-base">Location</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-gradient-to-br from-accent-pink to-light-pink rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-700">1806 Innovation Park</p>
+                                    <p class="text-xs text-gray-500">Oro Valley, Arizona</p>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-4 border-t border-gray-200">
+                                <p class="text-xs text-gray-500 leading-relaxed">
+                                    Done doing content the hard way? Book a call and see how your brand could run with an AI rep that actually shows up.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Bar -->
+                <div class="border-t border-gray-200/80 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-xs text-gray-500 text-center md:text-left">
+                        Â© 2024 The Soft System. Built for brands that are tired of doing it all.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-xs text-gray-500">System Operational</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Ensure proper layout on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force a reflow to fix initial layout issues
+            document.body.style.display = 'none';
+            document.body.offsetHeight; // Trigger reflow
+            document.body.style.display = '';
+            
+            // Add smooth scrolling behavior
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = button.querySelector('.faq-icon');
+                
+                // Toggle current FAQ
+                const isOpen = !answer.classList.contains('hidden');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.add('hidden'));
+                document.querySelectorAll('.faq-icon').forEach(ic => ic.classList.remove('rotate-180'));
+                
+                // Open clicked FAQ if it wasn't open
+                if (!isOpen) {
+                    answer.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                }
+            });
+        });
+
+        // Revenue Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#slider-track > div');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function showSlide(index) {
+            const track = document.getElementById('slider-track');
+            track.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update dots
+            dots.forEach(dot => dot.classList.remove('active', 'bg-accent-pink'));
+            dots.forEach(dot => dot.classList.add('bg-gray-600'));
+            dots[index].classList.add('active', 'bg-accent-pink');
+            dots[index].classList.remove('bg-gray-600');
+            
+            currentSlide = index;
+        }
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+        
+        // Auto-advance slider
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // CTA Button Actions
+document.querySelectorAll('button').forEach(button => {
+    if (button.textContent.includes('SCHEDULE A CALL')) {
+        button.addEventListener('click', () => {
+            window.open('https://app.iclosed.io/e/softsystem/ai-systems-strategy', '_blank');
+        });
+    }
+});
+
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('slide-enter-active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('slide-enter');
+            observer.observe(section);
+        });
+
+        // Prevent horizontal overflow
+        window.addEventListener('resize', function() {
+            document.body.style.overflowX = 'hidden';
+        });
+    </script>
+    <!-- iClosed popup widget begin -->
+    <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+    <!-- iClosed popup widget end -->
+
+    
+
+
+
+</body>
+</html>
